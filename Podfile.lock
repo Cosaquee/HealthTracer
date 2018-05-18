@@ -1,0 +1,56 @@
+PODS:
+  - DynamicBlurView (2.0.2)
+  - MaterialComponents/Cards (55.0.4):
+    - MaterialComponents/Ink
+    - MaterialComponents/private/Icons/ic_check_circle
+    - MaterialComponents/private/Math
+    - MaterialComponents/private/Shapes
+    - MaterialComponents/ShadowLayer
+  - MaterialComponents/Ink (55.0.4):
+    - MaterialComponents/private/Math
+  - MaterialComponents/private/Icons/Base (55.0.4)
+  - MaterialComponents/private/Icons/ic_check_circle (55.0.4):
+    - MaterialComponents/private/Icons/Base
+  - MaterialComponents/private/Math (55.0.4)
+  - MaterialComponents/private/Shapes (55.0.4):
+    - MaterialComponents/private/Math
+    - MaterialComponents/ShadowLayer
+  - MaterialComponents/ShadowElevations (55.0.4)
+  - MaterialComponents/ShadowLayer (55.0.4):
+    - MaterialComponents/ShadowElevations
+  - PopupDialog (0.7.1):
+    - DynamicBlurView (~> 2.0)
+  - Realm (3.5.0):
+    - Realm/Headers (= 3.5.0)
+  - Realm/Headers (3.5.0)
+  - RealmGeoQueries (1.3.1):
+    - RealmSwift
+  - RealmSwift (3.5.0):
+    - Realm (= 3.5.0)
+
+DEPENDENCIES:
+  - MaterialComponents/Cards
+  - PopupDialog (~> 0.7)
+  - RealmGeoQueries
+  - RealmSwift
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - DynamicBlurView
+    - MaterialComponents
+    - PopupDialog
+    - Realm
+    - RealmGeoQueries
+    - RealmSwift
+
+SPEC CHECKSUMS:
+  DynamicBlurView: aa6db4defc6e537eb86fc5e58dd3991666178399
+  MaterialComponents: 059f649876b2e1ed6a623ba689175493422cc7cd
+  PopupDialog: 39598b7d41719f5c025b4b70e62728bae7734fef
+  Realm: 0378021c424e4e2bd6a0e63b27881e929d9b9ad1
+  RealmGeoQueries: b2a43d13efda168ebbf213689e594099e85b5fc7
+  RealmSwift: 3322562622fda2ad596985ead4d8d8be30cf838c
+
+PODFILE CHECKSUM: 99998026e6c3705797ed2d24c257961ab7d7be92
+
+COCOAPODS: 1.5.2
