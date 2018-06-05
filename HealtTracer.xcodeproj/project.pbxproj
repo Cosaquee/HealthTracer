@@ -12,6 +12,7 @@
 		C8983AAED22DD80E3F9B1984 /* Pods_HealtTracerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D107D10A6C1EA07C2D0A2F8 /* Pods_HealtTracerUITests.framework */; };
 		E30A4E2A20AF5E9100404848 /* DistanceGoal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30A4E2920AF5E9100404848 /* DistanceGoal.swift */; };
 		E30A4E2C20AF68F000404848 /* StepsGoal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30A4E2B20AF68F000404848 /* StepsGoal.swift */; };
+		E31B38EA20AFFF31001D2A65 /* WeekDayStarts.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31B38E920AFFF31001D2A65 /* WeekDayStarts.swift */; };
 		E32446F72085091900C6B5C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32446F62085091900C6B5C4 /* AppDelegate.swift */; };
 		E32446F92085091900C6B5C4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32446F82085091900C6B5C4 /* ViewController.swift */; };
 		E32446FC2085091900C6B5C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E32446FA2085091900C6B5C4 /* Main.storyboard */; };
@@ -67,6 +68,7 @@
 		DD26485217DA215544E91B83 /* Pods_HealtTracerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HealtTracerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E30A4E2920AF5E9100404848 /* DistanceGoal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceGoal.swift; sourceTree = "<group>"; };
 		E30A4E2B20AF68F000404848 /* StepsGoal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsGoal.swift; sourceTree = "<group>"; };
+		E31B38E920AFFF31001D2A65 /* WeekDayStarts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDayStarts.swift; sourceTree = "<group>"; };
 		E32446F32085091900C6B5C4 /* HealtTracer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealtTracer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E32446F62085091900C6B5C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E32446F82085091900C6B5C4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -167,11 +169,13 @@
 		E32446F52085091900C6B5C4 /* HealtTracer */ = {
 			isa = PBXGroup;
 			children = (
+				E366784A20B09FBD00979F45 /* Models */,
 				E38F0DAE208656CA00A5F9DA /* MapViewController.swift */,
 				E32447242085094900C6B5C4 /* HealtTracer.entitlements */,
 				E32446F62085091900C6B5C4 /* AppDelegate.swift */,
 				E32446F82085091900C6B5C4 /* ViewController.swift */,
 				E32446FA2085091900C6B5C4 /* Main.storyboard */,
+				E31B38E920AFFF31001D2A65 /* WeekDayStarts.swift */,
 				E32446FD2085091B00C6B5C4 /* Assets.xcassets */,
 				E32446FF2085091B00C6B5C4 /* LaunchScreen.storyboard */,
 				E32447022085091B00C6B5C4 /* Info.plist */,
@@ -185,12 +189,7 @@
 				E3E8EB8120AB80EF00E1F830 /* DistanceView.swift */,
 				E3E8EB8320AB865E00E1F830 /* StepsView.swift */,
 				E3F3C44320AC82D200E9515C /* DBManager.swift */,
-				E3F3C44520AC850900E9515C /* Location.swift */,
-				E37261DA20ACBC0B00E763F4 /* TracerLocation.swift */,
 				E34F3DCF20ACDA640077EA64 /* ARView.swift */,
-				E3C48B2820AE0D8F0088C689 /* Trening.swift */,
-				E30A4E2920AF5E9100404848 /* DistanceGoal.swift */,
-				E30A4E2B20AF68F000404848 /* StepsGoal.swift */,
 				E376B72220AF71F1007CAE23 /* WeekStats.swift */,
 			);
 			path = HealtTracer;
@@ -223,6 +222,18 @@
 				7D107D10A6C1EA07C2D0A2F8 /* Pods_HealtTracerUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E366784A20B09FBD00979F45 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E3F3C44520AC850900E9515C /* Location.swift */,
+				E37261DA20ACBC0B00E763F4 /* TracerLocation.swift */,
+				E3C48B2820AE0D8F0088C689 /* Trening.swift */,
+				E30A4E2920AF5E9100404848 /* DistanceGoal.swift */,
+				E30A4E2B20AF68F000404848 /* StepsGoal.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -463,6 +474,7 @@
 				E30A4E2C20AF68F000404848 /* StepsGoal.swift in Sources */,
 				E32446F72085091900C6B5C4 /* AppDelegate.swift in Sources */,
 				E37261DB20ACBC0B00E763F4 /* TracerLocation.swift in Sources */,
+				E31B38EA20AFFF31001D2A65 /* WeekDayStarts.swift in Sources */,
 				E328A10820A9FF6F00A2C47C /* HeartRate.swift in Sources */,
 				E328A10A20AB3A3D00A2C47C /* FloorView.swift in Sources */,
 				E3E8EB8420AB865E00E1F830 /* StepsView.swift in Sources */,

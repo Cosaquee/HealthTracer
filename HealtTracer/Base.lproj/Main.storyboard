@@ -471,7 +471,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2pP-pH-oL6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="805.79710144927537" y="-297.554347826087"/>
+            <point key="canvasLocation" x="809" y="-331"/>
         </scene>
         <!--Distance View-->
         <scene sceneID="ZdL-cQ-HmY">
@@ -484,8 +484,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kfT-Ih-7ef" customClass="Toolbar" customModule="Material">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4dY-1q-Zqb">
-                                        <rect key="frame" x="150.66666666666666" y="49" width="0.0" height="27"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4dY-1q-Zqb">
+                                        <rect key="frame" x="105" y="49" width="93" height="27"/>
                                         <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="24"/>
                                         <color key="textColor" red="0.96710217759999995" green="1" blue="0.97359318260000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -528,7 +528,7 @@
                                     <constraint firstItem="CeQ-Fs-ukJ" firstAttribute="leading" secondItem="c73-yM-Aho" secondAttribute="trailing" constant="21" id="5xl-lc-uOq"/>
                                     <constraint firstItem="I3L-EP-QSh" firstAttribute="baseline" secondItem="CeQ-Fs-ukJ" secondAttribute="baseline" id="9Se-x5-AxM"/>
                                     <constraint firstItem="pPu-NQ-hUp" firstAttribute="leading" secondItem="I3L-EP-QSh" secondAttribute="trailing" constant="37" id="GxI-yv-QRD"/>
-                                    <constraint firstItem="4dY-1q-Zqb" firstAttribute="centerX" secondItem="CeQ-Fs-ukJ" secondAttribute="centerX" constant="-1" id="HuC-kS-oVE"/>
+                                    <constraint firstItem="4dY-1q-Zqb" firstAttribute="centerX" secondItem="CeQ-Fs-ukJ" secondAttribute="centerX" id="HuC-kS-oVE"/>
                                     <constraint firstItem="pPu-NQ-hUp" firstAttribute="centerY" secondItem="c73-yM-Aho" secondAttribute="centerY" id="IuP-zg-5Hd"/>
                                     <constraint firstItem="I3L-EP-QSh" firstAttribute="centerX" secondItem="yDh-xh-twS" secondAttribute="centerX" id="Nms-C9-Apo"/>
                                     <constraint firstItem="c73-yM-Aho" firstAttribute="leading" secondItem="kfT-Ih-7ef" secondAttribute="leading" constant="20" id="Oo4-Qn-GPb"/>
@@ -563,7 +563,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iS7-Gx-Oe0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="805.79710144927537" y="-148.36956521739131"/>
+            <point key="canvasLocation" x="805.79710144927537" y="-205.43478260869566"/>
         </scene>
         <!--Steps View-->
         <scene sceneID="PsW-HP-rAQ">
@@ -635,7 +635,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rSa-YN-9uW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="805.79710144927537" y="13.858695652173914"/>
+            <point key="canvasLocation" x="806" y="-68"/>
         </scene>
         <!--Week Stats-->
         <scene sceneID="v4G-6n-Fhn">
@@ -698,16 +698,37 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="dfw-Ve-CIV"/>
                     </view>
                     <connections>
                         <outlet property="caloriesCountLabel" destination="sLc-ST-88y" id="U8B-o9-pKI"/>
+                        <outlet property="caloriesImage" destination="J0c-wS-LVv" id="RKr-Xl-XWR"/>
                         <outlet property="distanceCountLabel" destination="YkW-jZ-vqo" id="8tZ-u0-iNf"/>
+                        <outlet property="distanceImage" destination="iZK-mT-fCS" id="kAf-4U-Yqs"/>
                         <outlet property="stepsCountLabel" destination="QMh-R4-Rse" id="fbu-Xz-Mo4"/>
+                        <outlet property="stepsImage" destination="xjr-rO-Wqj" id="bxw-3G-GdG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mgD-wD-SEz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="805.79710144927537" y="174.45652173913044"/>
+            <point key="canvasLocation" x="806" y="79"/>
+        </scene>
+        <!--Week Day Stats-->
+        <scene sceneID="rFy-Zu-gm3">
+            <objects>
+                <viewController storyboardIdentifier="WeekDayStats" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="tZC-X6-HyW" customClass="WeekDayStats" customModule="HealtTracer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="k0B-dm-EPa">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <rect key="contentStretch" x="0.0" y="0.0" width="0.59999999999999998" height="0.59999999999999998"/>
+                        <viewLayoutGuide key="safeArea" id="9da-BQ-qX0"/>
+                    </view>
+                    <size key="freeformSize" width="414" height="736"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D71-Yj-VHg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="813" y="517"/>
         </scene>
     </scenes>
     <resources>

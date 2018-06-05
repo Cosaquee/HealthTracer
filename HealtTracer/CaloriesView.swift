@@ -8,8 +8,6 @@
 
 import Foundation
 import UIKit
-import RealmSwift
-
 class CaloriesView: UIViewController {
     
     @IBOutlet weak var currentCaloriesLabel: UILabel!
@@ -18,9 +16,6 @@ class CaloriesView: UIViewController {
   
     override func viewDidLoad() {
         super.viewDidLoad()
-        let realm = try! Realm()
-        
-        let trenings = realm.objects(Trening.self).filter("inProggres = true")
         
         let hkm = HealtKitManager()
         hkm.readActiveEnergy(result: { (weight, goal) in

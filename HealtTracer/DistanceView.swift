@@ -1,11 +1,3 @@
-//
-//  DistanceView.swift
-//  HealtTracer
-//
-//  Created by Karol Kozakowski on 15/05/2018.
-//  Copyright © 2018 Karol Kozakowski. All rights reserved.
-//
-
 import Foundation
 import UIKit
 import RealmSwift
@@ -15,17 +7,6 @@ class DistanceView: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var distanceGoalLabel: UILabel!
     @IBOutlet weak var distanceTextField: UITextField!
     @IBOutlet weak var statusImage: UIImageView!
-    
-//    @IBAction func editGoal(_ sender: Any) {
-//        let realm = try! Realm()
-//
-//        try! realm.write {
-//            let distanceGoal = DistanceGoal()
-//            distanceGoal.goal = Int(distanceTextField.text!)!
-//        }
-//
-//        distanceTextField.returnKeyType = .done
-//    }
     
     @IBAction func editGoal(_ sender: Any) {
         print("Edit")
@@ -57,6 +38,7 @@ class DistanceView: UIViewController, UITextFieldDelegate {
         }
         
         let hkm = HealtKitManager()
+        
         hkm.readDistance(result: { (weight, _) in
             DispatchQueue.main.async {
                 self.distanceMadeLabel.text = "\(Int(weight))km"

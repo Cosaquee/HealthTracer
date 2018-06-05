@@ -25,43 +25,68 @@ class ARView: UIViewController, ARSCNViewDelegate {
     @IBAction func add(_ sender: Any) {
         let title = "Do you want to save current time and heartrate?"
 
-        let sv = UIViewController.displaySpinner(onView: self.view)
+        let treningTime = self.getCurrentTreningTime()
+        let meanHeartRate = self.getMeanHeartRate()
         
-        let hkm = HealtKitManager()
-        hkm.getHeartRate(completion: { hr in
-            let treningTime = self.getCurrentTreningTime()
-            let popup = PopupDialog(title: title,
-                                    message: "Current trening time: \(treningTime) \(String(hr))",
-                                    buttonAlignment: .horizontal,
-                                    transitionStyle: .zoomIn,
-                                    gestureDismissal: true,
-                                    hideStatusBar: true) {
-                                        print("Completed")
-            }
-            
-            let buttonOne = CancelButton(title: "Cancel") { [weak self] in
-                print("canceled")
-            }
-            
-            let buttonTwo = DefaultButton(title: "Save") { [weak popup] in
-                let node = SCNNode()
-                //        node.geometry = SCNBox(width: 0.1, height: 0.1, length: 0.1, chamferRadius: 0.03)
-                
+        let popup = PopupDialog(title: title,
+                                message: "Current trening time: \(treningTime) \(String(meanHeartRate))",
+                                buttonAlignment: .horizontal,
+                                transitionStyle: .zoomIn,
+                                gestureDismissal: true,
+                                hideStatusBar: true) {
+                                    print("Completed")
+        }
+        
+        let buttonOne = CancelButton(title: "Cancel") { [weak self] in
+            print("canceled")
+        }
+        
+        let buttonTwo = DefaultButton(title: "Save") { [weak popup] in
+            let node = SCNNode()
+            node.geometry = SCNCapsule(capRadius: 0.1, height: 0.3)
+            node.position = SCNVector3(0, 0, -1)
+            //        node.geometry = SCNBox(width: 0.1, height: 0.1, length: 0.1, chamferRadius: 0.03)
+            node.geometry?.firstMaterial?.specular.contents = UIColor.red
+            print(meanHeartRate)
+            if (meanHeartRate < 60.0 ) {
+                print("mean hertRate less than 60")
                 node.geometry?.firstMaterial?.specular.contents = UIColor.white
-                node.geometry?.firstMaterial?.diffuse.contents = UIColor.blue
-                node.geometry = SCNCapsule(capRadius: 0.1, height: 0.3)
-                node.position = SCNVector3(0, 0, -0.3)
-                
-                self.sceneView.autoenablesDefaultLighting = true
-                self.sceneView.scene.rootNode.addChildNode(node)
+            } else if (meanHeartRate >= 60.0 && meanHeartRate < 70.0) {
+                print("mean hertRate less than 70")
+                node.geometry?.firstMaterial?.specular.contents = UIColor.gray
+            } else if (meanHeartRate >= 70 && meanHeartRate < 80) {
+                node.geometry?.firstMaterial?.specular.contents = UIColor.orange
+                print("mean hertRate less than 80")
+            } else {
+                node.geometry?.firstMaterial?.specular.contents = UIColor.red
             }
+
+//            node.geometry?.firstMaterial?.diffuse.contents = UIColor.blue
+
             
-            popup.addButtons([buttonOne, buttonTwo])
-            
-            self.present(popup, animated: true, completion: nil)
-        })
+            self.sceneView.autoenablesDefaultLighting = true
+            self.sceneView.scene.rootNode.addChildNode(node)
+        }
         
-        UIViewController.removeSpinner(spinner: sv)
+        popup.addButtons([buttonOne, buttonTwo])
+        
+        self.present(popup, animated: true, completion: nil)
+    }
+    
+    func getMeanHeartRate() -> Double {
+        let realm = try! Realm()
+        
+        let trenings = realm.objects(Trening.self).filter("inProggres = true")
+        
+        guard let trening = trenings.first else {
+            return 0.0
+        }
+        
+        let trenignStartDate = trening.StartDate
+        
+        let heartRates = realm.objects(UserLocation.self).filter("locationDate > %@ and locationDate < %@", trenignStartDate, Date())
+        
+        return (heartRates.sum(ofProperty: "heartRate") / Double(heartRates.count))
     }
 
     override func viewDidLoad() {
@@ -74,7 +99,7 @@ class ARView: UIViewController, ARSCNViewDelegate {
     func getCurrentTreningTime() -> String {
         
         let realm = try! Realm()
-        let p1 = NSPredicate(format: "inProggres == YES")
+        
         let trenings = realm.objects(Trening.self).filter("inProggres = true")
         
         guard let trening = trenings.first else {

@@ -14,8 +14,17 @@ class WeekStats: UIViewController {
     @IBOutlet weak var distanceCountLabel: UILabel!
     @IBOutlet weak var caloriesCountLabel: UILabel!
     
+    @IBOutlet weak var caloriesImage: UIImageView!
+    @IBOutlet weak var distanceImage: UIImageView!
+    @IBOutlet weak var stepsImage: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let gesture = UITapGestureRecognizer(target: self, action:  #selector(self.checkAction))
+        self.view.addGestureRecognizer(gesture)
+        gesture.numberOfTapsRequired = 2
+        
         let hkm = HealtKitManager()
         hkm.getStepsCountIn7Days(result: { weight in
             DispatchQueue.main.async {
@@ -34,5 +43,17 @@ class WeekStats: UIViewController {
                 self.caloriesCountLabel.text = "\(Int(calories))"
             }
         })
+    }
+
+    
+    @objc func checkAction(sender : UITapGestureRecognizer) {
+        let vc = (
+            storyboard?.instantiateViewController(
+                withIdentifier: "WeekDayStats")
+            )!
+        
+//        vc.modalTransitionStyle = .crossDissolve
+//        vc.modalPresentationStyle = .overCurrentContext
+        present(vc, animated: true, completion: nil)
     }
 }

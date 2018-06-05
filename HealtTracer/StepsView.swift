@@ -31,6 +31,7 @@ class StepsView: UIViewController, UITextFieldDelegate {
         
         let hkm = HealtKitManager()
         hkm.readSteps(result: { (weight, _) in
+            print("WEIGHT", weight)
             DispatchQueue.main.async {
                 self.stepsMadeLabel.text = "\(Int(weight))"
                 self.stepsTextField.text = "\(stepsGoal.goal)"
