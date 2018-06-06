@@ -16,4 +16,6 @@ class UserLocation: Object {
     @objc dynamic var lat = 0.0
     @objc dynamic var heartRate = 0.0
     @objc dynamic var locationDate = Date()
+    
+    @objc dynamic var trening: Trening?
 }

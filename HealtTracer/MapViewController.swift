@@ -37,6 +37,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             guard let trening = trenings.first else {
                 return
             }
+            
             try! realm.write {
                 trening.inProggres  = false
             }
@@ -98,8 +99,15 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
                 
                 hkm.getHeartRate(completion: { heartRate in
                     let realm = try! Realm()
+                    let trenings = realm.objects(Trening.self).filter("inProggres = true")
+                    
+                    guard let trening = trenings.first else {
+                        return
+                    }
                     try! realm.write {
                         userLocation.heartRate = heartRate
+                        userLocation.trening = trening
+                        
                         realm.add(userLocation)
                     }
                 })
