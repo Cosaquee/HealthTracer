@@ -49,7 +49,6 @@ class HeartRate: UIViewController {
                                     print("Error: \(error!.localizedDescription)")
                                     return
                                 }
-        //                        let hrLatest = results?[0] as! HKQuantitySample
         
                                 guard let hrLatest = results?.first as? HKQuantitySample else {
                                     self.heartRateLabel.text = "0"
@@ -69,7 +68,6 @@ class HeartRate: UIViewController {
                 }
     }
     
-    // must be internal or public.
     @objc func update() {
         self.fetchHeartRate(result: {heartRate in
             DispatchQueue.main.async {
@@ -92,8 +90,7 @@ class HeartRate: UIViewController {
             })
         }
         
-        var timer = Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
 
-//
     }
 }
