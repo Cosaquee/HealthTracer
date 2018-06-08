@@ -22,21 +22,21 @@ class StepsView: UIViewController, UITextFieldDelegate {
         let realm = try! Realm()
         self.stepsTextField.delegate = self
         
-        let distances = realm.objects(StepsGoal.self)
+        let steps = realm.objects(StepsGoal.self)
         
-        guard let stepsGoal = distances.first else {
-            self.stepsTextField.text = "7000"
-            return
+        var goal = 7000
+        
+        if let stepGoal = steps.first {
+            goal = stepGoal.goal
         }
         
         let hkm = HealtKitManager()
         hkm.readSteps(result: { (weight, _) in
-            print("WEIGHT", weight)
             DispatchQueue.main.async {
                 self.stepsMadeLabel.text = "\(Int(weight))"
-                self.stepsTextField.text = "\(stepsGoal.goal)"
+                self.stepsTextField.text = "\(goal)"
                 
-                if (weight < Double(stepsGoal.goal)) {
+                if (weight < Double(goal)) {
                     self.statusImage.image = UIImage(named: "sad")
                 } else {
                     self.statusImage.image = UIImage(named: "smile")

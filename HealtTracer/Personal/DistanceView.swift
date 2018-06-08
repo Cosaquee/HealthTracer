@@ -3,6 +3,7 @@ import UIKit
 import RealmSwift
 
 class DistanceView: UIViewController, UITextFieldDelegate {
+    
     @IBOutlet weak var distanceMadeLabel: UILabel!
     @IBOutlet weak var distanceGoalLabel: UILabel!
     @IBOutlet weak var distanceTextField: UITextField!
@@ -27,28 +28,33 @@ class DistanceView: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("Distance view loaded")
         let realm = try! Realm()
         self.distanceTextField.delegate = self
         
         let distances = realm.objects(DistanceGoal.self)
-        
-        guard let distanceGoal = distances.first else {
-            self.distanceTextField.text = "4km"
-            return
+
+        var goal = 4
+        if let distanceGoal = distances.first {
+            goal = distanceGoal.goal
+        } else {
+            print("Goal not set")
         }
-        
+    
         let hkm = HealtKitManager()
         
         hkm.readDistance(result: { (weight, _) in
             DispatchQueue.main.async {
                 self.distanceMadeLabel.text = "\(Int(weight))km"
-                self.distanceTextField.text = "\(distanceGoal.goal)"
+                self.distanceTextField.text = "\(goal)"
                 
-                if (weight < Double(distanceGoal.goal)) {
-                    print("Weight less than goal")
+                if (weight < Double(goal)) {
+                    print("AAAAAAAAAAAAAAAAA")
+                    print("Distance less than goal")
                     self.statusImage.image = UIImage(named: "sad")
                 } else {
-                    print("Goal bigger than goal")
+                    print("Distance goal bigger than goal")
+                    print("BBBBBBBBBBBBB")
                     self.statusImage.image = UIImage(named: "smile")
                 }
             }
