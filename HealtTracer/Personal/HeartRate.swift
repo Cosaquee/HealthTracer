@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 import HealthKit
 
+import RealmSwift
+
 class HeartRate: UIViewController {
     
     @IBOutlet weak var heartRateLabel: UILabel!
@@ -28,8 +30,24 @@ class HeartRate: UIViewController {
         
                         let dateFormatter = DateFormatter()
                         dateFormatter.dateFormat = "MM/dd/YYYY"
+//
+//                        let earlyDate = Calendar.current.date(
+//                            byAdding: .hour,
+//                            value: -1,
+//                            to: Date())
+                        
+//                        let earlyDate = NSDate(timeIntervalSinceNow: -3600)
+                        
+                        
+//                        let oneMinuteAgo = Date.init(timeIntervalSinceReferenceDate: -60)
+                        let oneMinuteAgo = Date().addingTimeInterval(-3600)
+                        let now = Date()
+                        let tempCalendar = Calendar.current
+//                        let alteredDate = tempCalendar.date(byAdding: .hour, value: +1, to: now)
+                        print(Date())
+//                        print(alteredDate)
         
-                        let predicate = HKQuery.predicateForSamples(withStart: Date.distantPast, end: Date(), options: .strictEndDate)
+                        let predicate = HKQuery.predicateForSamples(withStart: oneMinuteAgo, end: Date(), options: [.strictEndDate, .strictStartDate])
         
                         let sortDescriptor = NSSortDescriptor(
                             key: HKSampleSortIdentifierStartDate,
@@ -51,7 +69,7 @@ class HeartRate: UIViewController {
                                 }
         
                                 guard let hrLatest = results?.first as? HKQuantitySample else {
-                                    self.heartRateLabel.text = "0"
+                                        self.heartRateLabel.text = "0"
                                     return
                                 }
         
@@ -59,7 +77,7 @@ class HeartRate: UIViewController {
                                 let heartRate = hrLatest
                                     .quantity
                                     .doubleValue(for: heartRateUnit)
-                                print("Heart Rate: ", heartRate)
+                                print(results)
                                 result(heartRate)
                         }
         
@@ -70,8 +88,8 @@ class HeartRate: UIViewController {
     
     @objc func update() {
         self.fetchHeartRate(result: {heartRate in
+            print(heartRate)
             DispatchQueue.main.async {
-                print(heartRate)
                 self.heartRateLabel.text = "\(Int(heartRate))"
             }
         })
@@ -91,6 +109,5 @@ class HeartRate: UIViewController {
         }
         
         Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
-
     }
 }

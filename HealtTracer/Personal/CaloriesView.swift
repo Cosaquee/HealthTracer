@@ -24,10 +24,8 @@ class CaloriesView: UIViewController {
                 self.goalCaloriesLabel.text = "\(Int(goal))"
                 
                 if (weight < goal) {
-                    print("Weight less than goal")
                     self.statusFace.image = UIImage(named: "sad")
                 } else {
-                    print("Goal bigger than goal")
                     self.statusFace.image = UIImage(named: "smile")
                 }
             }

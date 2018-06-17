@@ -13,4 +13,6 @@ class Trening: Object {
     @objc dynamic var StartDate = Date()
     @objc dynamic var EndDate = Date()
     @objc dynamic var inProggres = true
+    
+    let locations = List<UserLocation>()
 }

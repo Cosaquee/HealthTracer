@@ -28,7 +28,7 @@ class DistanceView: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Distance view loaded")
+
         let realm = try! Realm()
         self.distanceTextField.delegate = self
         
@@ -49,12 +49,8 @@ class DistanceView: UIViewController, UITextFieldDelegate {
                 self.distanceTextField.text = "\(goal)"
                 
                 if (weight < Double(goal)) {
-                    print("AAAAAAAAAAAAAAAAA")
-                    print("Distance less than goal")
                     self.statusImage.image = UIImage(named: "sad")
                 } else {
-                    print("Distance goal bigger than goal")
-                    print("BBBBBBBBBBBBB")
                     self.statusImage.image = UIImage(named: "smile")
                 }
             }

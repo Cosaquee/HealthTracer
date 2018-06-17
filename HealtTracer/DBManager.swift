@@ -32,6 +32,17 @@ class DBManager {
         return try! database.findInRegion(type: UserLocation.self, region: region)
     }
     
+    func findNearbyTrening(lat: Double, lon: Double, radius: Double, trening: Trening) -> [UserLocation] {
+        let locations = self.findNearby(lat: lat, lon: lon, radius: radius)
+        var treningLocations: [UserLocation] = []
+        if let i = locations.index(where: {$0.trening == trening}) {
+            treningLocations.append(locations[i])
+        }
+        
+        print("Previous locations in trening ", treningLocations)
+        return treningLocations
+    }
+    
     func findNearby(lat: Double, lon: Double, radius: Double) -> [UserLocation] {
         return try! database.findNearby(type: UserLocation.self, origin: CLLocationCoordinate2D(latitude: lat, longitude: lon), radius: radius, sortAscending: nil)
     }
@@ -44,7 +55,7 @@ class DBManager {
     }
     
     func getCurrentTrening() -> Results<Trening> {
-        return try! self.database.objects(Trening.self).filter("inProggres", true)
+        return self.database.objects(Trening.self).filter("inProggres", true)
     }
 }
 

@@ -28,6 +28,9 @@
 		E328A10E20AB577A00A2C47C /* HeightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E328A10D20AB577A00A2C47C /* HeightView.swift */; };
 		E328A11020AB646000A2C47C /* CaloriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E328A10F20AB646000A2C47C /* CaloriesView.swift */; };
 		E34F3DD020ACDA640077EA64 /* ARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34F3DCF20ACDA640077EA64 /* ARView.swift */; };
+		E359CAF920D0492D00976600 /* LocationMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = E359CAF820D0492C00976600 /* LocationMark.swift */; };
+		E359CAFB20D1901500976600 /* HeartRateAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E359CAFA20D1901500976600 /* HeartRateAnnotation.swift */; };
+		E359CAFD20D1A65F00976600 /* CustomPolyline.swift in Sources */ = {isa = PBXBuildFile; fileRef = E359CAFC20D1A65F00976600 /* CustomPolyline.swift */; };
 		E37261DB20ACBC0B00E763F4 /* TracerLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37261DA20ACBC0B00E763F4 /* TracerLocation.swift */; };
 		E376B72320AF71F1007CAE23 /* WeekStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = E376B72220AF71F1007CAE23 /* WeekStats.swift */; };
 		E38F0DAF208656CA00A5F9DA /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38F0DAE208656CA00A5F9DA /* MapViewController.swift */; };
@@ -37,6 +40,7 @@
 		E3E8EB8420AB865E00E1F830 /* StepsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8EB8320AB865E00E1F830 /* StepsView.swift */; };
 		E3F3C44420AC82D200E9515C /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F3C44320AC82D200E9515C /* DBManager.swift */; };
 		E3F3C44620AC850900E9515C /* UserLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F3C44520AC850900E9515C /* UserLocation.swift */; };
+		E3F7EF8820D4300500B639E0 /* TreningNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F7EF8720D4300500B639E0 /* TreningNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +95,9 @@
 		E328A10D20AB577A00A2C47C /* HeightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeightView.swift; sourceTree = "<group>"; };
 		E328A10F20AB646000A2C47C /* CaloriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesView.swift; sourceTree = "<group>"; };
 		E34F3DCF20ACDA640077EA64 /* ARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARView.swift; sourceTree = "<group>"; };
+		E359CAF820D0492C00976600 /* LocationMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationMark.swift; sourceTree = "<group>"; };
+		E359CAFA20D1901500976600 /* HeartRateAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRateAnnotation.swift; sourceTree = "<group>"; };
+		E359CAFC20D1A65F00976600 /* CustomPolyline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPolyline.swift; sourceTree = "<group>"; };
 		E37261DA20ACBC0B00E763F4 /* TracerLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TracerLocation.swift; sourceTree = "<group>"; };
 		E376B72220AF71F1007CAE23 /* WeekStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekStats.swift; sourceTree = "<group>"; };
 		E38F0DAE208656CA00A5F9DA /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +107,7 @@
 		E3E8EB8320AB865E00E1F830 /* StepsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsView.swift; sourceTree = "<group>"; };
 		E3F3C44320AC82D200E9515C /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		E3F3C44520AC850900E9515C /* UserLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocation.swift; sourceTree = "<group>"; };
+		E3F7EF8720D4300500B639E0 /* TreningNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreningNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +207,7 @@
 				E324472820850B8C00C6B5C4 /* HealthKitManager.swift */,
 				E3F3C44320AC82D200E9515C /* DBManager.swift */,
 				E34F3DCF20ACDA640077EA64 /* ARView.swift */,
+				E359CAFC20D1A65F00976600 /* CustomPolyline.swift */,
 			);
 			path = HealtTracer;
 			sourceTree = "<group>";
@@ -235,11 +244,14 @@
 		E366784A20B09FBD00979F45 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E359CAF820D0492C00976600 /* LocationMark.swift */,
 				E3F3C44520AC850900E9515C /* UserLocation.swift */,
 				E37261DA20ACBC0B00E763F4 /* TracerLocation.swift */,
 				E3C48B2820AE0D8F0088C689 /* Trening.swift */,
 				E30A4E2920AF5E9100404848 /* DistanceGoal.swift */,
 				E30A4E2B20AF68F000404848 /* StepsGoal.swift */,
+				E359CAFA20D1901500976600 /* HeartRateAnnotation.swift */,
+				E3F7EF8720D4300500B639E0 /* TreningNode.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -473,12 +485,14 @@
 				E328A10C20AB4EF300A2C47C /* ActiveHoursView.swift in Sources */,
 				E324472920850B8C00C6B5C4 /* HealthKitManager.swift in Sources */,
 				E3C48B2920AE0D8F0088C689 /* Trening.swift in Sources */,
+				E359CAFB20D1901500976600 /* HeartRateAnnotation.swift in Sources */,
 				E3F3C44420AC82D200E9515C /* DBManager.swift in Sources */,
 				E32446F92085091900C6B5C4 /* ViewController.swift in Sources */,
 				E34F3DD020ACDA640077EA64 /* ARView.swift in Sources */,
 				E39BE7F820A9ED9D0087FE3D /* PersonalView.swift in Sources */,
 				E3F3C44620AC850900E9515C /* UserLocation.swift in Sources */,
 				E376B72320AF71F1007CAE23 /* WeekStats.swift in Sources */,
+				E3F7EF8820D4300500B639E0 /* TreningNode.swift in Sources */,
 				E30A4E2C20AF68F000404848 /* StepsGoal.swift in Sources */,
 				E32446F72085091900C6B5C4 /* AppDelegate.swift in Sources */,
 				E37261DB20ACBC0B00E763F4 /* TracerLocation.swift in Sources */,
@@ -486,9 +500,11 @@
 				E328A10820A9FF6F00A2C47C /* HeartRate.swift in Sources */,
 				E328A10A20AB3A3D00A2C47C /* FloorView.swift in Sources */,
 				E3E8EB8420AB865E00E1F830 /* StepsView.swift in Sources */,
+				E359CAF920D0492D00976600 /* LocationMark.swift in Sources */,
 				E328A10E20AB577A00A2C47C /* HeightView.swift in Sources */,
 				E3E8EB8220AB80EF00E1F830 /* DistanceView.swift in Sources */,
 				E38F0DAF208656CA00A5F9DA /* MapViewController.swift in Sources */,
+				E359CAFD20D1A65F00976600 /* CustomPolyline.swift in Sources */,
 				E30A4E2A20AF5E9100404848 /* DistanceGoal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
